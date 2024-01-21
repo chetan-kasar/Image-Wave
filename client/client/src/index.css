@@ -438,7 +438,7 @@ button:hover {
 
   .container-1{
     width: 100%;
-    overflow: auto;
+    height: auto;
   }
   
   .container-2{
