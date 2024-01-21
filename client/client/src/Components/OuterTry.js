@@ -11,7 +11,7 @@ const OuterTry = (props) => {
 
     const handleClick = ()=>{
         setImageUrl("");
-        axios.post("http://localhost:5000/home", {prompt}).then(
+        axios.post("https://image-wave-server.vercel.app/home", {prompt}).then(
             response=>{
                 console.log(response.data);
                 setImageUrl(`data:image/jpeg;base64,${response.data}`);
@@ -21,7 +21,7 @@ const OuterTry = (props) => {
 
         useEffect(() => {
             console.log(prompt);
-            axios.post("http://localhost:5000/home", {prompt}).then(
+            axios.post("https://image-wave-server.vercel.app/home", {prompt}).then(
                 response=>{
                     setImageUrl(`data:image/jpeg;base64,${response.data}`);
                 }
@@ -38,7 +38,7 @@ const OuterTry = (props) => {
             prompt:prompt,
         }
 
-        axios.post("http://localhost:5000/shareImage", {data}).then(
+        axios.post("https://image-wave-server.vercel.app/shareImage", {data}).then(
             response=>{
                 console.log(response.data);
             }
