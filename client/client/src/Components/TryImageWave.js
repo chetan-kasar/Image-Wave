@@ -81,7 +81,7 @@ const TryImageWave = (props) => {
         </div>
 
         <div className='prompt-div'>
-          <input text="text" placeholder={`Prompt : ${ele.prompt}`} onChange={(e)=>{setPrompt(e.target.value)}} className='prompt'/>
+          <input text="text" placeholder="Describe image you want to generate...." onChange={(e)=>{setPrompt(e.target.value)}} className='prompt'/>
           <img onClick={handleClick} src={send} className='send-btn'/>
         </div>
 
