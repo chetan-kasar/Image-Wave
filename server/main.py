@@ -36,21 +36,6 @@ def accessToken():
 
 @app.route("/shareImage", methods=["POST"])
 def shareImage():
-    data = request.get_json()
-    imageUrl = data.get('data', {}).get('imageUrl')
-    p, encoded_data = imageUrl.split(',')
-    image = base64.b64decode(encoded_data)
-    prompt = data.get('data', {}).get('prompt')
-
-    collection = db.mycollection
-    data = {
-        "prompt": prompt,
-    }
-    result = collection.insert_one(data)
-
-    with open(f"../client/client/src/Components/generatedImages/{result.inserted_id}.png", 'wb') as f:
-        f.write(image)
-
     return "Image received"
 
 
@@ -61,17 +46,11 @@ def home():
     print(prompt)
     current_datetime = datetime.now().strftime("%Y%m%d%H%M%S")
     image = client.text_to_image(prompt)
-    image.save(f"./images/{current_datetime}.png")
     buffered = BytesIO()
     image.save(buffered, format="JPEG")
     img_str = base64.b64encode(buffered.getvalue()).decode("utf-8")
     return img_str
 
-@app.route("/")
-def index():
-    current_datetime = datetime.now().strftime("%Y%m%d%H%M%S")
-    print(current_datetime)
-    return ""
 
 if __name__ == "__main__":
     app.run(debug=True)
