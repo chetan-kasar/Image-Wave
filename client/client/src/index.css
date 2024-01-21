@@ -1,0 +1,511 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.top-window{
+  background-color: black;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo{
+  height: 70px;
+  width: 70px;
+  margin-top: -6%;
+}
+
+.title-name {
+  font-size:2.5rem;
+  font-family: "Bree Serif";
+  font-weight: 900;
+  display: inline;
+  margin: 2%;
+  background-image: linear-gradient( 1.6deg,  rgba(48,207,208,1) 0.5%, rgba(51,8,103,1) 92.5% );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
+  filter: brightness(1.85);  
+}
+
+.container-1{
+  height: 550px;
+  width: 40%;
+  margin: 10px;
+  overflow: hidden;
+}
+
+.container-2{
+  height: 550px;
+  width: 35%;
+  margin: 10px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: white;
+  overflow:hidden;
+  box-shadow: 0 0 40px pink;
+}
+
+.carousel-item .d-block{
+  height: 480px;
+}
+
+.heading{
+  font-family: "Bree Serif";
+  color: white;
+  text-align: left;
+  font-size: 45px;
+  margin-top: 3%;
+}
+
+.para{
+  color: white;
+  font-family: "Bree Serif";
+  font-size: 20px;
+  margin: 3% 0;
+
+}
+
+.demo-input{
+  border-radius: 20px;
+  height: 55px;
+  width: 95%;
+  margin: 2% auto;
+  font-family: 'Oswald';
+  font-size: 20px;
+  padding: 1%;
+}
+
+.try-btn, .download-btn, .share-btn{
+  background-color: rgb(59, 124, 238);
+  padding: 2%;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 15px;
+  font-family: "Bree Serif";
+}
+
+.try-btn, .download-btn, .share-btn{
+  width: 200px;
+  font-size: 19px;
+  color: #fff;
+  cursor: pointer;
+  margin: 20px 0;
+  height: 55px;
+  text-align:center;
+  border: none;
+  background-size: 300% 100%;
+
+  border-radius: 50px;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.btn:hover {
+  background-position: 100% 0;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.try-btn, .download-btn, .share-btn{
+  background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+  box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+}
+
+.try-window{
+  background-color: black;
+  height: 100vh;
+}
+
+.prompt-div{
+  width: 100%;
+  text-align: center;
+  overflow: auto;
+  position: absolute;
+  bottom: 2%;
+  position: fixed;
+}
+
+.prompt{
+  width:80%;
+  height: 60px;
+  border: 2px solid black;
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 1.3rem;
+  font-family: "Bree Serif";
+}
+
+.prompt:focus{
+  outline: none;
+  border: 3px solid rgb(59, 124, 238);
+}
+
+.prompt::placeholder {
+  color: rgb(32, 29, 29) /* Change this to the desired color */
+}
+
+.send-btn{
+  height: 50px;
+  width: 50px;
+  margin-left: 5px;
+  position: absolute;
+  bottom: 16%;
+  cursor: pointer;
+}
+
+.send-btn:hover{
+  transform: scale(1.2);
+}
+
+.output-window{
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.output-img{
+  height: 450px;
+  width: 450px;
+  margin-top: 10%;
+  border-radius: 20px;
+  border: 2px solid white;
+  box-shadow: 0 0 20px white;
+}
+
+.output-btns{
+  margin-top: 10%;
+}
+
+.download-btn, .share-btn{
+  display: block;
+  margin: 15%;
+}
+
+.genrated-img-window{
+  background-color: black;
+}
+
+.genrated-img-top{
+  width: 90%;
+  margin: auto;
+  text-align: center;
+}
+
+.genrated-img{
+  height: 300px;
+  width: 300px;
+  margin: 2%;
+  border-radius: 20px;
+  box-shadow: 0 0 20px white;
+  border: 2px solid black;
+}
+
+.genrated-img:hover {
+  opacity: 0.5;
+}
+
+.output-prompt{
+  color:white;
+}
+
+.center {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+}
+.wave {
+  width: 5px;
+  height: 100px;
+  background: linear-gradient(45deg, cyan, #fff);
+  margin: 10px;
+  animation: wave 1s linear infinite;
+  border-radius: 20px;
+}
+.wave:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.wave:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.wave:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.wave:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.wave:nth-child(6) {
+  animation-delay: 0.5s;
+}
+.wave:nth-child(7) {
+  animation-delay: 0.6s;
+}
+.wave:nth-child(8) {
+  animation-delay: 0.7s;
+}
+.wave:nth-child(9) {
+  animation-delay: 0.8s;
+}
+.wave:nth-child(10) {
+  animation-delay: 0.9s;
+}
+
+@keyframes wave {
+  0% {
+    transform: scale(0);
+  }
+  25% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  75% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+.middle-window-1{
+  background-color: antiquewhite;
+  padding-top: 4%;
+  text-align: center;
+  padding-bottom: 5%;
+}
+
+.middle-heading{
+  font-size: 25px;
+  text-align: center;
+}
+
+.middle-para{
+  text-align: center;
+  font-size: 22px;
+  font-family: 'Ubuntu';
+  margin: 2%;
+}
+
+.demo-imgs{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.demo-imgs div{
+  width: 300px;
+  margin: 2%;
+  position: relative;
+}
+
+.demo-imgs div img{
+  height: 300px;
+  width: 300px;
+  box-shadow: 0 0 10px black;
+}
+
+.demo-imgs div p{
+  opacity: 0;
+  position: absolute;
+  bottom: 0;
+  font-family: 'Roboto Slab';
+}
+
+.demo-imgs div:hover img{
+  opacity: 0.5;
+}
+
+.demo-imgs div:hover p{
+  opacity: 1;
+}
+
+.middle-window-1 .desc h3{
+  font-family: "Roboto Slab";
+  margin: 4% 0;
+}
+
+.middle-window-1 .desc p{
+  font-family: "Roboto Slab";
+  font-size: 20px;
+  width: 80%;
+  margin: auto;
+}
+
+.middle-window-2{
+  background-image: url("https://png.pngtree.com/thumb_back/fh260/background/20200710/pngtree-pastel-rainbow-colored-gradient-background-banner-image_351656.jpg");
+  height: auto;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  padding: 2%;
+}
+
+.middle-window-2 h3{
+  font-family: "Roboto Slab";
+}
+
+.middle-window-2 p{
+  font-family: "Roboto Slab";
+  font-size: 20px;
+  width: 50%;
+  margin: 3% auto;
+}
+
+.learn-more{
+  font-family: "Bree Serif";
+  background-color: transparent;
+  border-radius: 20px;
+  text-align: center;
+  padding: 5px;
+  border: 3px solid black;
+}
+
+.copy-right{
+  background-color: rgb(201, 197, 197);
+  font-family: "Bree Serif";
+  text-align: center;
+}
+
+.at-container {
+  background-color: #fff;
+  padding: 20px;
+  width: 30%;
+  margin: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.at-container label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.at-container input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.at-container button {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.access-error{
+  color: red;
+  font-family: "Bree Serif";
+  font-size: 28px;
+}
+
+@media only screen and (max-width: 600px) {
+  .top-window{
+    height: auto;
+    padding: 2%;
+  }
+  
+  .top-window{
+    display: block;
+  }
+
+  .container-1{
+    width: 100%;
+  }
+  
+  .container-2{
+    height: 0;
+    visibility: hidden;
+  }
+
+  .demo-imgs{
+    display: inline;
+    width: 100%;
+  }
+
+  .demo-imgs div{
+    width: 300px;
+    margin: 5% auto;
+  }
+
+  .middle-window-1 .desc p{
+    font-family: "Roboto Slab";
+    font-size: 20px;
+    width: 90%;
+    margin: auto;
+  }
+
+  .middle-window-2 p{
+    font-family: "Roboto Slab";
+    font-size: 20px;
+    width: 90%;
+    margin: 3% auto;
+  }
+
+  .at-container{
+    width: 90%;
+    margin-top: 50%;
+  }
+
+  .genrated-img{
+    margin: 5%;
+    border-radius: 20px;
+    box-shadow: 0 0 15px white;
+    border: 2px solid black;
+  }
+
+  .prompt-div{
+    width: 100%;
+    text-align: left;
+    margin-left: 10%;
+    overflow: auto;
+  }
+
+  .prompt{
+    width:70%;
+  }
+  
+  .output-window{
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+
+  .output-img{
+    width: 380px;
+    height: 380px;
+    box-shadow: none;
+  }
+
+  .output-btns .btn{
+    margin: 5% auto;
+  }
+  
+}

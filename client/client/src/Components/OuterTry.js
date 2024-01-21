@@ -1,0 +1,89 @@
+import React, { useEffect } from 'react'
+import { useState } from 'react';
+import axios from 'axios';
+import { saveAs } from 'file-saver';
+import send from '../images/send.png';
+import girl from '../images/girl.png';
+const OuterTry = (props) => {
+
+    const[prompt, setPrompt] = useState(props.prompt);
+    const[imageUrl, setImageUrl] = useState("");
+
+    const handleClick = ()=>{
+        setImageUrl("");
+        axios.post("http://localhost:5000/home", {prompt}).then(
+            response=>{
+                console.log(response.data);
+                setImageUrl(`data:image/jpeg;base64,${response.data}`);
+            }
+        )
+    }
+
+        useEffect(() => {
+            console.log(prompt);
+            axios.post("http://localhost:5000/home", {prompt}).then(
+                response=>{
+                    setImageUrl(`data:image/jpeg;base64,${response.data}`);
+                }
+            )
+        }, []);
+
+    const downloadImage = () => {
+        saveAs(imageUrl, 'image.png') 
+      }
+    
+    const shareImage = () => {
+        const data = {
+            imageUrl: imageUrl,
+            prompt:prompt,
+        }
+
+        axios.post("http://localhost:5000/shareImage", {data}).then(
+            response=>{
+                console.log(response.data);
+            }
+        ).catch(error=>{
+            console.log(error);
+        })
+    }
+
+  return (
+    <div className='try-window'>
+
+        <div className='output-window'>
+            {!imageUrl ? 
+                <div class="center">
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                </div>
+                :
+                <>
+                    <img src={imageUrl} className='output-img'/>
+                    <div className='output-btns'>
+                        <button className='btn download-btn' onClick={downloadImage}>Download</button>
+                        <button className='btn share-btn' onClick={shareImage}>Share</button>
+                        <button className='btn share-btn'>Favorite</button>
+                        <button className='btn share-btn'>Rotate</button>
+                    </div>
+                </>
+            }
+        </div>
+
+        <div className='prompt-div'>
+          <input text="text" value={prompt} placeholder={'Describe image you want to generate...'} onChange={(e)=>{setPrompt(e.target.value)}} className='prompt'/>
+          <img onClick={handleClick} src={send} className='send-btn'/>
+        </div>
+        
+    </div>
+  )
+}
+
+export default OuterTry
