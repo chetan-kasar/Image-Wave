@@ -2,3 +2,4 @@ Flask
 Flask-CORS
 Pillow
 pymongo
+huggingface-hub
