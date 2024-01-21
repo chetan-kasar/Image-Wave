@@ -12,7 +12,7 @@ const GeneratedImages = (props) => {
 
     useEffect(() => {
       console.log("findPrompts");
-      axios.post("http://localhost:5000/findPrompts").then(
+      axios.post("https://image-wave-server.vercel.app/findPrompts").then(
           response=>{
               setPromptList(response.data);
           }
