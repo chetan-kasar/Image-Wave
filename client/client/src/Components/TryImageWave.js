@@ -8,6 +8,7 @@ const TryImageWave = (props) => {
 
     const[prompt, setPrompt] = useState("");
     const[imageUrl, setImageUrl] = useState(props.image);
+    const [intervalId, setIntervalId] = useState(1);
 
     const parts = props.image.split('.');
     const extension = parts.shift();
@@ -15,13 +16,41 @@ const TryImageWave = (props) => {
 
     const ele = props.prompList.find(item => item._id === uniqueId); // find prompt for imageName === id
 
-    const handleClick = ()=>{
-        setImageUrl("");
-        axios.post("https://image-wave-server.vercel.app/home", {prompt}).then(
+    const stopInterval = () => {
+        console.log(intervalId);
+        clearInterval(intervalId);
+        setIntervalId(null);
+      };
+
+    const myFunction = () => {
+        axios.post("http://localhost:5000/generated_image").then(
             response=>{
-                setImageUrl(`data:image/jpeg;base64,${response.data}`);
+                if(response.data === "not")
+                {
+                    console.log("Image not generated yet");
+                }
+                else
+                {
+                    setImageUrl(`data:image/jpeg;base64,${response.data}`);
+                    stopInterval();
+                }
             }
         )
+      };
+    
+    const startInterval = () => {
+        const id = setInterval(myFunction, 8000);
+        setIntervalId(id);
+    };
+    
+    const handleClick = ()=>{
+       setImageUrl("");
+        axios.post("http://localhost:5000/home", {prompt}).then(
+            // response=>{
+            //     setImageUrl(`data:image/jpeg;base64,${response.data}`);
+            // }
+        )
+        startInterval();
     }
 
     const downloadImage = () => {
