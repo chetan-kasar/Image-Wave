@@ -6,6 +6,8 @@ from io import BytesIO
 import base64
 import os
 from pymongo import MongoClient
+from concurrent.futures import ThreadPoolExecutor
+executor = ThreadPoolExecutor(max_workers=2)
 
 mongo_uri = "mongodb://localhost:27017/"
 client = MongoClient(mongo_uri)
@@ -16,6 +18,22 @@ from huggingface_hub import InferenceClient
 client = InferenceClient(token= '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', model="dataautogpt3/OpenDalleV1.1")
 app = Flask(__name__)
 CORS(app)
+
+img = ""
+def process_image(prompt):
+    image = client.text_to_image(prompt)
+    buffered = BytesIO()
+    image.save(buffered, format="JPEG")
+    img_str = base64.b64encode(buffered.getvalue()).decode("utf-8")
+    global img
+    img = img_str
+
+@app.route("/generated_image", methods=["POST"])
+def generated_image():
+    if(img != ""):
+        return img
+    else:
+        return "not"
 
 @app.route("/findPrompts", methods=["POST"])
 def find():
@@ -41,15 +59,19 @@ def shareImage():
 
 @app.route("/home", methods=["POST"])
 def home():
+    response = {'message': 'Image processing started'}
+    status_code = 200
+    
     data = request.get_json()
     prompt = data.get('prompt')
     print(prompt)
-    current_datetime = datetime.now().strftime("%Y%m%d%H%M%S")
-    image = client.text_to_image(prompt)
-    buffered = BytesIO()
-    image.save(buffered, format="JPEG")
-    img_str = base64.b64encode(buffered.getvalue()).decode("utf-8")
-    return img_str
+    executor.submit(process_image, prompt)
+    # current_datetime = datetime.now().strftime("%Y%m%d%H%M%S")
+    # image = client.text_to_image(prompt)
+    # buffered = BytesIO()
+    # image.save(buffered, format="JPEG")
+    # img_str = base64.b64encode(buffered.getvalue()).decode("utf-8")
+    return jsonify(response), status_code
 
 
 if __name__ == "__main__":
