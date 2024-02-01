@@ -8,7 +8,7 @@ const AccessToken = (props) => {
     const navigate = useNavigate();
 
     const handleClick = ()=>{
-        axios.post("https://image-wave-server.vercel.app/checkToken", {token}).then(
+        axios.post("https://iw-server.onrender.com/checkToken", {token}).then(
           response=>{
               if(response.data === 'Valid')
               {
