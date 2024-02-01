@@ -3,3 +3,4 @@ Flask-CORS
 Pillow
 pymongo
 huggingface-hub
+gunicorn
