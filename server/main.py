@@ -73,6 +73,10 @@ def home():
     # img_str = base64.b64encode(buffered.getvalue()).decode("utf-8")
     return jsonify(response), status_code
 
+@app.route("/")
+def index():
+    return "Index page !!!!!";
+    
 
 if __name__ == "__main__":
     app.run(debug=False, host='0.0.0.0')
