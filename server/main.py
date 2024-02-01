@@ -42,7 +42,7 @@ def find():
     # for i in data_from_db:
     #     i['_id'] = str(i['_id'])
     # return data_from_db
-    return [];
+    return []
 
 @app.route("/checkToken", methods=["POST"])
 def accessToken():
