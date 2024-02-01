@@ -31,6 +31,7 @@ def process_image(prompt):
 @app.route("/generated_image", methods=["POST"])
 def generated_image():
     if(img != ""):
+        print("Image Generated !!!")
         return img
     else:
         return "not"
