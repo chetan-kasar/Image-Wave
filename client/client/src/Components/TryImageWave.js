@@ -8,7 +8,7 @@ const TryImageWave = (props) => {
 
     const[prompt, setPrompt] = useState("");
     const[imageUrl, setImageUrl] = useState(props.image);
-    const [intervalId, setIntervalId] = useState(1);
+    const intervalIdRef = useRef(null);
 
     const parts = props.image.split('.');
     const extension = parts.shift();
@@ -17,9 +17,8 @@ const TryImageWave = (props) => {
     const ele = props.prompList.find(item => item._id === uniqueId); // find prompt for imageName === id
 
     const stopInterval = () => {
-        console.log("Interval id : ",intervalId);
-        clearInterval(intervalId);
-        setIntervalId(null);
+        clearInterval(intervalIdRef.current);
+        intervalIdRef.current = null;
       };
 
     const myFunction = () => {
@@ -40,7 +39,7 @@ const TryImageWave = (props) => {
     
     const startInterval = () => {
         const id = setInterval(myFunction, 8000);
-        setIntervalId(id);
+        intervalIdRef.current = id;
     };
     
     const handleClick = ()=>{
