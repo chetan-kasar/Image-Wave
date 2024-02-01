@@ -12,7 +12,7 @@ const GeneratedImages = (props) => {
 
     useEffect(() => {
       console.log("findPrompts");
-      axios.post("https://image-wave-server.vercel.app/findPrompts").then(
+      axios.post("https://iw-server.onrender.com/findPrompts").then(
           response=>{
               setPromptList(response.data);
           }
