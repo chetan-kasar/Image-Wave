@@ -17,7 +17,7 @@ const TryImageWave = (props) => {
     const ele = props.prompList.find(item => item._id === uniqueId); // find prompt for imageName === id
 
     const stopInterval = () => {
-        console.log(intervalId);
+        console.log("Interval id : ",intervalId);
         clearInterval(intervalId);
         setIntervalId(null);
       };
