@@ -46,9 +46,10 @@ const TryImageWave = (props) => {
     const handleClick = ()=>{
        setImageUrl("");
         axios.post("https://iw-server.onrender.com/home", {prompt}).then(
-            // response=>{
-            //     setImageUrl(`data:image/jpeg;base64,${response.data}`);
-            // }
+            response=>{
+                // setImageUrl(`data:image/jpeg;base64,${response.data}`);
+                console.log(response.data);
+            }
         )
         startInterval();
     }
