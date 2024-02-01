@@ -37,11 +37,12 @@ def generated_image():
 
 @app.route("/findPrompts", methods=["POST"])
 def find():
-    collection = db.mycollection
-    data_from_db = list(collection.find())
-    for i in data_from_db:
-        i['_id'] = str(i['_id'])
-    return data_from_db
+    # collection = db.mycollection
+    # data_from_db = list(collection.find())
+    # for i in data_from_db:
+    #     i['_id'] = str(i['_id'])
+    # return data_from_db
+    return [];
 
 @app.route("/checkToken", methods=["POST"])
 def accessToken():
