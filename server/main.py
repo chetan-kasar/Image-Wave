@@ -66,6 +66,7 @@ def home():
     data = request.get_json()
     prompt = data.get('prompt')
     print(prompt)
+    img = ""
     executor.submit(process_image, prompt)
     # current_datetime = datetime.now().strftime("%Y%m%d%H%M%S")
     # image = client.text_to_image(prompt)
