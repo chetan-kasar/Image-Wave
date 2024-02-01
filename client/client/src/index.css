@@ -508,5 +508,10 @@ button:hover {
   .output-btns .btn{
     margin: 5% auto;
   }
+
+   .output-btns{
+    overflow: auto;
+    height: 25vh;
+  }
   
 }
