@@ -23,7 +23,7 @@ const TryImageWave = (props) => {
       };
 
     const myFunction = () => {
-        axios.post("https://image-wave-server.vercel.app/generated_image").then(
+        axios.post("https://iw-server.onrender.com/generated_image").then(
             response=>{
                 if(response.data === "not")
                 {
@@ -45,7 +45,7 @@ const TryImageWave = (props) => {
     
     const handleClick = ()=>{
        setImageUrl("");
-        axios.post("https://image-wave-server.vercel.app/home", {prompt}).then(
+        axios.post("https://iw-server.onrender.com/home", {prompt}).then(
             // response=>{
             //     setImageUrl(`data:image/jpeg;base64,${response.data}`);
             // }
