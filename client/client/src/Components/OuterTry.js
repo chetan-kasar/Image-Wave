@@ -52,7 +52,7 @@ const OuterTry = (props) => {
             console.log(prompt);
             axios.post("https://iw-server.onrender.com/home", {prompt}).then(
                 response=>{
-                    setImageUrl(`data:image/jpeg;base64,${response.data}`);
+                    //setImageUrl(`data:image/jpeg;base64,${response.data}`);
                 }
             )
             startInterval();
