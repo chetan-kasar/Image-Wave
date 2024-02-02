@@ -8,14 +8,43 @@ const OuterTry = (props) => {
 
     const[prompt, setPrompt] = useState(props.prompt);
     const[imageUrl, setImageUrl] = useState("");
+    const intervalIdRef = useRef(null);
+
+    const stopInterval = () => {
+        clearInterval(intervalIdRef.current);
+        intervalIdRef.current = null;
+      };
+
+    const myFunction = () => {
+        console.log(intervalIdRef.current);
+        axios.post("https://iw-server.onrender.com/generated_image").then(
+            response=>{
+                if(response.data === "not")
+                {
+                    console.log("Image not generated yet");
+                }
+                else
+                {
+                    setImageUrl(`data:image/jpeg;base64,${response.data}`);
+                    stopInterval();
+                }
+            }
+        )
+      };
+    
+    const startInterval = () => {
+        const id = setInterval(myFunction, 8000);
+        intervalIdRef.current = id;
+    };
 
     const handleClick = ()=>{
         setImageUrl("");
         axios.post("https://iw-server.onrender.com/home", {prompt}).then(
             response=>{
+                //setImageUrl(`data:image/jpeg;base64,${response.data}`);
                 console.log(response.data);
-                setImageUrl(`data:image/jpeg;base64,${response.data}`);
             }
+            startInterval();
         )
     }
 
