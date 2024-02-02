@@ -55,6 +55,7 @@ const OuterTry = (props) => {
                     setImageUrl(`data:image/jpeg;base64,${response.data}`);
                 }
             )
+            startInterval();
         }, []);
 
     const downloadImage = () => {
