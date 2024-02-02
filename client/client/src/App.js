@@ -44,12 +44,12 @@ const App = () => {
         </Routes>
 
         <Routes>
-          <Route path="/tryImageWave" element={!auth? <AccessToken authUser={authUser} />:<TryImageWave image={image} prompList={prompList}/>}>
+          <Route path="/tryImageWave" element={!auth? <AccessToken authUser={authUser} />:<><Navbar/><TryImageWave image={image} prompList={prompList}/></>}>
           </Route>
         </Routes>
 
         <Routes>
-          <Route path="/outerTry" element={!auth? <AccessToken authUser={authUser} />:<OuterTry prompt={prompt}/>}>
+          <Route path="/outerTry" element={!auth? <AccessToken authUser={authUser} />:<><Navbar/><OuterTry prompt={prompt}/></>}>
           </Route>
         </Routes>
 
