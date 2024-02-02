@@ -1,6 +1,10 @@
 *{
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
+}
+
+.intervalid{
+  color:white;
 }
 
 .top-window{
@@ -14,7 +18,7 @@
 .logo{
   height: 70px;
   width: 70px;
-  margin-top: -6%;
+  margin-top: -2%;
 }
 
 .title-name {
@@ -33,7 +37,7 @@
 }
 
 .container-1{
-  height: 550px;
+  height: auto;
   width: 40%;
   margin: 10px;
   overflow: hidden;
@@ -292,6 +296,7 @@
 }
 
 .middle-heading{
+  font-family: "Roboto Slab";
   font-size: 25px;
   text-align: center;
 }
@@ -299,7 +304,7 @@
 .middle-para{
   text-align: center;
   font-size: 22px;
-  font-family: 'Ubuntu';
+  font-family: 'Bree Serif';
   margin: 2%;
 }
 
@@ -430,15 +435,26 @@ button:hover {
   .top-window{
     height: auto;
     padding: 2%;
-  }
-  
-  .top-window{
+    text-align: center;
     display: block;
   }
 
+  .logo{
+    height:50px;
+    width:50px;
+  }
+
   .container-1{
-    width: 100%;
-    height: auto;
+    width: 90%;
+  }
+
+  .container-1 .para{
+    font-size: 18px;
+  }
+
+  .heading{
+    font-size: 30px;
+    text-align: center;
   }
   
   .container-2{
@@ -453,21 +469,27 @@ button:hover {
 
   .demo-imgs div{
     width: 300px;
-    margin: 5% auto;
+    height: 300px;
+    margin: 10% auto;
+  }
+
+  .middle-para{
+    font-size: 18px;
+    margin: 5%;
   }
 
   .middle-window-1 .desc p{
     font-family: "Roboto Slab";
-    font-size: 20px;
+    font-size: 18px;
     width: 90%;
-    margin: auto;
+    margin: 8% auto;
   }
 
   .middle-window-2 p{
     font-family: "Roboto Slab";
-    font-size: 20px;
+    font-size: 18px;
     width: 90%;
-    margin: 3% auto;
+    margin: 8% auto;
   }
 
   .at-container{
@@ -509,9 +531,17 @@ button:hover {
     margin: 5% auto;
   }
 
-   .output-btns{
+  .output-btns{
     overflow: auto;
     height: 25vh;
+  }
+
+  .learn-more{
+    margin: 2%;
+  }
+
+  .copy-right p{
+    margin: 0px;
   }
   
 }
