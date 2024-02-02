@@ -44,8 +44,8 @@ const OuterTry = (props) => {
                 //setImageUrl(`data:image/jpeg;base64,${response.data}`);
                 console.log(response.data);
             }
-            startInterval();
         )
+        startInterval();
     }
 
         useEffect(() => {
