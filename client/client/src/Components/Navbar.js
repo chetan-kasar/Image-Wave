@@ -14,7 +14,7 @@ const Navbar = () => {
             <div className="navbar-nav">
               <Link className="nav-link active" aria-current="page" to="/">Home</Link>
               <Link className="nav-link" to="/generatePage">GeneratedImages</Link>
-              <Link className="nav-link" to="">About Us</Link>
+              <a className="nav-link" href="https://help-sphere-frontend.vercel.app">Try HelpSphere</a>
             </div>
           </div>
         </div>
