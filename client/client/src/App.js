@@ -6,6 +6,7 @@ import TryImageWave from './Components/TryImageWave';
 import GeneratedImages from './Components/GeneratedImages';
 import OuterTry from './Components/OuterTry';
 import AccessToken from './Components/AccessToken';
+import Navbar from './Components/Navbar';
 import { BrowserRouter, Routes, Route, useParams, useNavigate} from "react-router-dom";
 
 
@@ -33,12 +34,12 @@ const App = () => {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home/>}>
+          <Route path="/" element={<><Navbar/><Home/></>}>
           </Route>
         </Routes>
 
         <Routes>
-          <Route path="/access-token" element={<AccessToken authUser={authUser}/>}>
+          <Route path="/access-token" element={<><Navbar/><AccessToken authUser={authUser}/></>}>
           </Route>
         </Routes>
 
@@ -53,7 +54,7 @@ const App = () => {
         </Routes>
 
         <Routes>
-          <Route path="/generatePage" element={!auth? <AccessToken authUser={authUser} />:<GeneratedImages imageClicked={imageClicked} sendClicked={sendClicked}/>}>
+          <Route path="/generatePage" element={!auth? <AccessToken authUser={authUser} />:<><Navbar/><GeneratedImages imageClicked={imageClicked} sendClicked={sendClicked}/></>}>
           </Route>
         </Routes>
       </BrowserRouter>
