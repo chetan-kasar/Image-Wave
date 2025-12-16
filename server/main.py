@@ -15,7 +15,7 @@ db = client.mydatabase
 
 
 from huggingface_hub import InferenceClient
-client = InferenceClient(token= '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', model="dataautogpt3/OpenDalleV1.1")
+client = InferenceClient(provider="hf-inference", token= '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', model="stabilityai/stable-diffusion-xl-base-1.0")
 app = Flask(__name__)
 CORS(app)
 
