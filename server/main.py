@@ -15,7 +15,7 @@ db = client.mydatabase
 
 
 from huggingface_hub import InferenceClient
-client = InferenceClient(token=os.getenv("HF_TOKEN"), model="black-forest-labs/FLUX.1-dev")
+client = InferenceClient(token=os.getenv("HF_TOKEN"), model="black-forest-labs/FLUX.1-schnell")
 app = Flask(__name__)
 CORS(app)
 
