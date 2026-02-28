@@ -421,8 +421,9 @@
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #45a049;
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: transparent !important;
 }
 
 .access-error{
